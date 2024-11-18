@@ -1,4 +1,4 @@
-## My Project
+**Machine Learning Models to Analyze the Impact of Traffic Emissions on PM2.5 Levels in New York City**
 
 I applied machine learning techniques to investigate... Below is my report.
 
