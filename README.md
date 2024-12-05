@@ -47,9 +47,19 @@ To prepare the data for analysis, several cleaning and feature editting were per
 
 ## Modelling 
 
-The first step of modelling is to choose an accurate model for the anlysis. In evaluating the predictive performance of PM2.5 levels, I researched multiple regression models, including Linear Regression, Ridge Regression, Random Forest, and Gradient Boosting that are potential to fit the trend plot and hence perform prediction model. The analysis of prediction models relies on the application of cross-validation techniques and hyperparameter tuning through GridSearchCV to optimize model performance and prevent overfitting.
+The first step of modelling is to select an accurate model for the anlysis. In evaluating the predictive performance of PM2.5 levels, I researched multiple regression models that are potential to fit the trend plot and hence perform prediction model. 
+
+
+The feature set for PM2.5 prediction comprises three key variables: mean NO concentration, mean NO2 concentration, and the year of measurement. An ensemble machine learning approach was employed, utilizing four regression models: Linear Regression, Ridge Regression, Random Forest, and Gradient Boosting. Linear Regression served as the baseline model to capture linear relationships between predictors and PM2.5 levels. Ridge Regression incorporated L2 regularization to mitigate overfitting and handle potential multicollinearity. Random Forest applied an ensemble of decision trees to capture non-linear interactions. Gradient Boosting utilized sequential tree-building to create a robust predictive model. The dataset was split into training (80%) and testing (20%) sets using a random state of 42 to ensure reproducibility.
+
+
+Ridge Regression and Random Forest models underwent systematic hyperparameter optimization using GridSearchCV with 5-fold cross-validation. For Ridge Regression, alpha values of [0.01, 0.1, 1, 10, 100] were explored to find the optimal regularization strength. The Random Forest model was tuned by varying the number of estimators (100, 200) and maximum tree depth (5, 10, None), with the selection criterion based on R² score. The analysis of prediction models relies on the application of cross-validation techniques and hyperparameter tuning through GridSearchCV to optimize model performance and prevent overfitting.
+
+
 To determine the most effective model, three key performance metrics were meticulously analyzed: R² (Coefficient of Determination), RMSE (Root Mean Square Error), and MAE (Mean Absolute Error). The R² metric provides insight into the proportion of variance in PM2.5 levels that can be explained by the independent variables, offering a measure of the model's explanatory power. A higher R² value indicates a more robust model that captures the underlying patterns in the data more effectively. The Root Mean Square Error (RMSE) complements this by quantifying the average magnitude of prediction errors, giving more weight to larger discrepancies and providing a nuanced view of the model's accuracy. Mean Absolute Error (MAE) offers an additional perspective by calculating the average absolute difference between predicted and actual values, which is particularly useful for understanding the model's predictive performance in a more straightforward manner.
-By systematically comparing these metrics across Linear Regression, Ridge Regression, Random Forest, and Gradient Boosting models, it is able to identify the most reliable approach for predicting urban PM2.5 concentrations. The model demonstrating the highest R² and lowest RMSE and MAE would be considered the most suitable for accurately forecasting particulate matter levels. Here is the results:
+
+
+By comparing these metrics across Linear Regression, Ridge Regression, Random Forest, and Gradient Boosting models, it is able to identify the most reliable approach for predicting urban PM2.5 concentrations. The model demonstrating the highest R² and lowest RMSE and MAE would be considered the most suitable for accurately forecasting particulate matter levels. Here is the results:
 
 
 
