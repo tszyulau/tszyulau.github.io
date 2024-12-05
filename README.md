@@ -10,21 +10,53 @@ To predict PM2.5 levels in urban environments, an ensemble machine learning appr
   This project focuses on the air quality challenge in New York City. We have datasets from the New York City Environmental Health Data Portal [4]. The datasets include PM2.5, NO, and NO2 levels for 2022. By cleaning the data and using machine learning techniques, we can modelize the trends and analyze the correlations between these pollutants and predict the impact of hypothetical traffic reductions. By using models like linear regression and gradient boosting and applying weighting method, we can quantify the contribution of traffic emissions to PM2.5 and simulate the effects of reduced traffic emissions, for instance, a 5%, 10%, 15% and 90% of reduction in PM2.5, NO and NO2 levels. The results showed a measurable reduction in PM2.5 levels, emphasizing the importance of managing traffic emissions for better air quality. This project in machine learning aims to provides insights of current air quality situation and predict situations under different scenarios, highlighting the value of machine learning in environmental analysis.
 
 ## Links
-Code: https://colab.research.google.com/drive/1dlk3SE7zYaYOlahEPSb_FWe1lZSBwSi-?usp=sharing
 
-Data: https://drive.google.com/drive/folders/1s9moHgI5mlNNIf35P_yqRgZ-jTYVy5sY?usp=sharing
+- Code: https://colab.research.google.com/drive/1KB060R_tsXEkppfVi7MSNn2mA84aMhvV?usp=sharing
+- Dataset:
+- PM2.5 : https://drive.google.com/file/d/1o1ClooaRVEIVjdf0LPbrHsmJjEBvfdMG/view?usp=drive_link
+- NO2   : https://drive.google.com/file/d/1Nd-4dSLHyB5qAiBMFIUNLCTntloMfRpW/view?usp=drive_link
+- NO    : https://drive.google.com/file/d/16bnMVJRpuHmC4f5JNGMFJaUZ9_xEyHaG/view?usp=drive_link
 
-## Data
-Input data features selected for this project are offshore water level (WL), deep water significant wave height (HSo), peak period (TP), peak direction (DP), and foreshore beach slope (b). Off-shore wave conditions (HSo, Tp, and DP) are publicly available at 30 minute intervals through the Coastal Data Information Program's (CDIP, https://cdip.ucsd.edu/) nearest deep water wave buoy (Point Loma South, 191). Water levels at 6 minute intervals are available through the National Oceanic and Atmospheric Administration's (NOAA, https://tidesandcurrents.noaa.gov/) nearest open coast tide gauge (La Jolla, 9410230). 
 
-Beach topography is taken from an ATV survey conducted February 18th, 2015. Foreshore beach slope varies as water levels move up and down the beach with tides and waves, as the beach face is convex. Therefore, an empirical parameterization of mean water level and wave runup presented by Stockdon et al., 2006 [10] is used to determine the range over which the foreshore beach slope is calculated:
+## Data 
 
-![](assets/IMG/eqn2.png)
+The analysis uses three datasets collected from New York City’s Environmental Health Data Portal for the year 2022:
 
-The groundwater head measured at a pressure sensor buried 30m inland from the shoreline is taken to be the target data. All input and target data are interpolated to match the lowest sample rate of 30 minutes in the CDIP data, and normalized to range from 0 to 1.
+https://a816-dohbesp.nyc.gov/IndicatorPublic/data-explorer/air-quality/?id=2023#display=summary
 
-![](assets/IMG/DataIn.png)
-*Figure 1: Input and target data collected at Imperial beach in February 2015.*
+- PM2.5 Dataset: Contains annual average PM2.5 concentrations (Mean mcg/m3), along with 10th percentile and 90th percentile values.
+
+- NO2 Dataset: Includes annual average NO2 levels (Mean ppb), 10th percentile, and 90th percentile data.
+
+- NO Dataset: Provides similar statistics for nitric oxide (NO), including Mean ppb, 10th percentile, and 90th percentile values.
+
+All datasets are aligned with community districts (CD) in New York City, allowing for spatial analysis.
+
+**Here is a description of the data in each column:**
+
+- TimePeriod: Represents the time frame for the data, such as "Annual Average 2022".
+
+- GeoType: Specifies the geographic type, e.g., "CD" (likely referring to community districts or similar entities).
+
+- GeoID: A unique identifier for each geographic area.
+
+- GeoRank: Represents the rank of the geographic area based on some criteria.
+
+- Geography: Descriptive name of the geographic area (e.g., "Financial District (CD1)").
+
+- 10th percentile ppb: The 10th percentile of measured Air Pollutants (NO2 or NO) levels in parts per billion (ppb).
+
+- 90th percentile ppb: The 90th percentile of measured Air Pollutants (or NO2 or NO) levels in parts per billion (ppb).
+
+- Mean ppb: The average measured Air Pollutants (NO2 or NO) levels in parts per billion (ppb).
+
+**Similar to PM2.5 dataset, except that:**
+
+- 10th percentile mcg/m³: The 10th percentile of measured fine particulate matter (PM2.5) levels in micrograms per cubic meter (mcg/m³).
+
+- 90th percentile mcg/m³: The 90th percentile of measured fine particulate matter (PM2.5) levels in micrograms per cubic meter (mcg/m³).
+
+- Mean mcg/m³: The average measured fine particulate matter (PM2.5) levels in micrograms per cubic meter (mcg/m³).
 
 
 ## Setting up your Project Website
