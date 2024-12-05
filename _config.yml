@@ -1,5 +1,10 @@
 title: Tsz Yu Lau
-description: A template for your AOS C111/204 project site.
-logo: /assets/IMG/template_logo.png
+description: 
+logo:
 show_downloads: true
-theme: jekyll-remote-theme
+future: true 
+
+
+remote_theme: pages-themes/caymam@v0.2.0]
+plugins:
+- jekyll-remote-theme
