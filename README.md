@@ -24,19 +24,22 @@ The analysis uses three datasets collected from New York City’s Environmental 
 
 https://a816-dohbesp.nyc.gov/IndicatorPublic/data-explorer/air-quality/?id=2023#display=summary
 
-- PM2.5 Dataset: Contains annual average PM2.5 concentrations (Mean mcg/m3), along with 10th percentile and 90th percentile values.
 
-- NO2 Dataset: Includes annual average NO2 levels (Mean ppb), 10th percentile, and 90th percentile data.
-
-- NO Dataset: Provides similar statistics for nitric oxide (NO), including Mean ppb, 10th percentile, and 90th percentile values.
+![]
+**Figure 1: PM2.5 Dataset. Contains annual average PM2.5 concentrations (Mean mcg/m3), along with 10th percentile and 90th percentile values.**
+![]
+**Figure 2: NO2 Dataset. Includes annual average NO2 levels (Mean ppb), 10th percentile, and 90th percentile data.**
+![]
+**Figure 3: NO Dataset. Provides similar statistics for nitric oxide (NO), including Mean ppb, 10th percentile, and 90th percentile values.**
 
 The analysis was conducted using three key datasets representing pollution metrics in New York City: fine particles (PM2.5), nitric oxide (NO), and nitrogen dioxide (NO2). Each dataset provided seasonal and annual averages of pollutant concentrations alongside geographical identifiers. The PM2.5 dataset included columns such as GeoID (a unique geographical identifier), Year, and PM2.5 Levels (measured in micrograms per cubic meter, mcg/m³). Similarly, the NO and NO2 datasets contained GeoID, TimePeriod (e.g., "Summer 2022"), and respective pollutant levels, along with metadata fields like Geotype and Georank.
 
-To prepare the data for analysis, we performed several cleaning and feature engineering steps. First, irrelevant columns such as Geotype and Georank were excluded to streamline the dataset. The datasets were then merged using the GeoID column and temporal identifiers, ensuring alignment across PM2.5, NO, and NO2 measurements. Next, the TimePeriod column was converted into numerical formats to reflect fractional years (e.g., "Summer 2022" became 2022.625), and annual averages were removed to focus on seasonal trends. Missing values were addressed through linear interpolation, ensuring data continuity without introducing bias. Finally, pollutant concentrations were standardized, with NO and NO2 levels converted to micrograms per cubic meter (mcg/m³) to maintain consistency across features. 
+To prepare the data for analysis, several cleaning and feature editting were performed. First, irrelevant columns such as Geography, Geotype and Georank were excluded to streamline the dataset. Next, the TimePeriod column was converted into numerical formats to reflect fractional years (e.g., "Summer 2022" became 2022.625), and annual averages were removed to focus on seasonal trends. Missing values were addressed through fillna function with median, ensuring data continuity without introducing bias. The datasets were then merged using the GeoID column and temporal identifiers, ensuring alignment across PM2.5, NO, and NO2 measurements. Finally, unit of pollutant concentrations were standardized, with mean NO and NO2 levels converted from ppb units to micrograms per cubic meter (mcg/m³) to maintain consistency across features. 
 
 **Here is the cleaned and merged data:**
 
-
+![]
+**Figure 3: Cleaned Dataset**
 
 ## Setting up your Project Website
 
