@@ -27,8 +27,12 @@ https://a816-dohbesp.nyc.gov/IndicatorPublic/data-explorer/air-quality/?id=2023#
 
 ![]
 **Figure 1: PM2.5 Dataset. Contains annual average PM2.5 concentrations (Mean mcg/m3), along with 10th percentile and 90th percentile values.**
+
+
 ![]
 **Figure 2: NO2 Dataset. Includes annual average NO2 levels (Mean ppb), 10th percentile, and 90th percentile data.**
+
+
 ![]
 **Figure 3: NO Dataset. Provides similar statistics for nitric oxide (NO), including Mean ppb, 10th percentile, and 90th percentile values.**
 
@@ -39,6 +43,8 @@ To prepare the data for analysis, several cleaning and feature editting were per
 **Here is the cleaned and merged data:**
 
 ![]
+
+
 **Figure 3: Cleaned Dataset**
 
 ## Setting up your Project Website
