@@ -1,5 +1,5 @@
-## Machine Learning Models to Predict Beach Groundwater Head Elevation at Imperial Beach, CA
-In order to predict beach groundwater hydraulic head, an ensemble machine learning approach is applied using linear regression with ridge regularization and random forest decision trees. 
+## Machine Learning Models to Analyze the Impact of Traffic Emissions on PM2.5 Levels in New York City
+To predict PM2.5 levels in urban environments, an ensemble machine learning approach is applied using linear regression, ridge regression, random forest, and gradient boosting decision trees.
 
 
 
@@ -9,11 +9,23 @@ In order to predict beach groundwater hydraulic head, an ensemble machine learni
 
   This project focuses on the air quality challenge in New York City. We have datasets from the New York City Environmental Health Data Portal [4]. The datasets include PM2.5, NO, and NO2 levels for 2022. By cleaning the data and using machine learning techniques, we can modelize the trends and analyze the correlations between these pollutants and predict the impact of hypothetical traffic reductions. By using models like linear regression and gradient boosting and applying weighting method, we can quantify the contribution of traffic emissions to PM2.5 and simulate the effects of reduced traffic emissions, for instance, a 5%, 10%, 15% and 90% of reduction in PM2.5, NO and NO2 levels. The results showed a measurable reduction in PM2.5 levels, emphasizing the importance of managing traffic emissions for better air quality. This project in machine learning aims to provides insights of current air quality situation and predict situations under different scenarios, highlighting the value of machine learning in environmental analysis.
 
-## How does this website work?
+## Links
+Code: https://colab.research.google.com/drive/1dlk3SE7zYaYOlahEPSb_FWe1lZSBwSi-?usp=sharing
 
-First, check out the Github repository for this site: [https://github.com/atmosalex/atmosalex.github.io/](https://github.com/atmosalex/atmosalex.github.io/).
+Data: https://drive.google.com/drive/folders/1s9moHgI5mlNNIf35P_yqRgZ-jTYVy5sY?usp=sharing
 
-Using GitHub pages, you can write a website using markdown syntax - the same syntax we use to write comments in Google Colab notebooks. GitHub pages then takes the markdown file and renders it as a web page using a Jekyll theme. The markdown source code for this page [is shown here](https://github.com/atmosalex/atmosalex.github.io/blob/main/README.md?plain=1).
+## Data
+Input data features selected for this project are offshore water level (WL), deep water significant wave height (HSo), peak period (TP), peak direction (DP), and foreshore beach slope (b). Off-shore wave conditions (HSo, Tp, and DP) are publicly available at 30 minute intervals through the Coastal Data Information Program's (CDIP, https://cdip.ucsd.edu/) nearest deep water wave buoy (Point Loma South, 191). Water levels at 6 minute intervals are available through the National Oceanic and Atmospheric Administration's (NOAA, https://tidesandcurrents.noaa.gov/) nearest open coast tide gauge (La Jolla, 9410230). 
+
+Beach topography is taken from an ATV survey conducted February 18th, 2015. Foreshore beach slope varies as water levels move up and down the beach with tides and waves, as the beach face is convex. Therefore, an empirical parameterization of mean water level and wave runup presented by Stockdon et al., 2006 [10] is used to determine the range over which the foreshore beach slope is calculated:
+
+![](assets/IMG/eqn2.png)
+
+The groundwater head measured at a pressure sensor buried 30m inland from the shoreline is taken to be the target data. All input and target data are interpolated to match the lowest sample rate of 30 minutes in the CDIP data, and normalized to range from 0 to 1.
+
+![](assets/IMG/DataIn.png)
+*Figure 1: Input and target data collected at Imperial beach in February 2015.*
+
 
 ## Setting up your Project Website
 
