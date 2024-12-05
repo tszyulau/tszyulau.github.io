@@ -25,14 +25,12 @@ The analysis uses three datasets collected from New York City’s Environmental 
 https://a816-dohbesp.nyc.gov/IndicatorPublic/data-explorer/air-quality/?id=2023#display=summary
 
 
-![assets/1.png]
-<img src="assets/1.png" height="500" width="auto">
+
 **Figure 1: PM2.5 Dataset. Contains annual average PM2.5 concentrations (Mean mcg/m3), along with 10th percentile and 90th percentile values.**
 
 
 ![]
 **Figure 2: NO2 Dataset. Includes annual average NO2 levels (Mean ppb), 10th percentile, and 90th percentile data.**
-
 
 ![]
 **Figure 3: NO Dataset. Provides similar statistics for nitric oxide (NO), including Mean ppb, 10th percentile, and 90th percentile values.**
@@ -43,13 +41,30 @@ To prepare the data for analysis, several cleaning and feature editting were per
 
 **Here is the cleaned and merged data:**
 
-![]
 
 
 **Figure 4: Cleaned Dataset**
 
 ## Modelling 
 
+The first step of modelling is to choose an accurate model for the anlysis. In evaluating the predictive performance of PM2.5 levels, I researched multiple regression models, including Linear Regression, Ridge Regression, Random Forest, and Gradient Boosting that are potential to fit the trend plot and hence perform prediction model. The analysis of prediction models relies on the application of cross-validation techniques and hyperparameter tuning through GridSearchCV to optimize model performance and prevent overfitting.
+To determine the most effective model, three key performance metrics were meticulously analyzed: R² (Coefficient of Determination), RMSE (Root Mean Square Error), and MAE (Mean Absolute Error). The R² metric provides insight into the proportion of variance in PM2.5 levels that can be explained by the independent variables, offering a measure of the model's explanatory power. A higher R² value indicates a more robust model that captures the underlying patterns in the data more effectively. The Root Mean Square Error (RMSE) complements this by quantifying the average magnitude of prediction errors, giving more weight to larger discrepancies and providing a nuanced view of the model's accuracy. Mean Absolute Error (MAE) offers an additional perspective by calculating the average absolute difference between predicted and actual values, which is particularly useful for understanding the model's predictive performance in a more straightforward manner.
+By systematically comparing these metrics across Linear Regression, Ridge Regression, Random Forest, and Gradient Boosting models, it is able to identify the most reliable approach for predicting urban PM2.5 concentrations. The model demonstrating the highest R² and lowest RMSE and MAE would be considered the most suitable for accurately forecasting particulate matter levels. Here is the results:
+
+
+
+**Table 1: Performance Metrics Results For Regression Models Table
+
+
+
+
+
+
+<img src="assets/1.png" height="500" width="auto">
+
+** Figure : Trend Plot of New York Air Pollutant Concentration Level (NOx and PM2.5) From 2009 to 2022
+
+Based on the performance metrics, the Gradient Boosting model emerges as the most promising approach for PM2.5 prediction. It has the highest R² of 0.8796 and the lowest RMSE of 0.5544. This model slightly outperforms the Random Forest model, which shows similar characteristics but with marginally lower performance metrics. The results tell us that the Gradient Boosting model is able to explains about 87.96% of the variance in PM2.5 levels effectively, indicating a strong predictive capability. Therefore, the Gradient Boosting model is chosen for further analysis.
 
 
 ### How to copy this site as a template
