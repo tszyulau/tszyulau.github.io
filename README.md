@@ -30,33 +30,12 @@ https://a816-dohbesp.nyc.gov/IndicatorPublic/data-explorer/air-quality/?id=2023#
 
 - NO Dataset: Provides similar statistics for nitric oxide (NO), including Mean ppb, 10th percentile, and 90th percentile values.
 
-All datasets are aligned with community districts (CD) in New York City, allowing for spatial analysis.
+The analysis was conducted using three key datasets representing pollution metrics in New York City: fine particles (PM2.5), nitric oxide (NO), and nitrogen dioxide (NO2). Each dataset provided seasonal and annual averages of pollutant concentrations alongside geographical identifiers. The PM2.5 dataset included columns such as GeoID (a unique geographical identifier), Year, and PM2.5 Levels (measured in micrograms per cubic meter, mcg/m³). Similarly, the NO and NO2 datasets contained GeoID, TimePeriod (e.g., "Winter 2022"), and respective pollutant levels, along with metadata fields like Geotype and Georank.
 
-**Here is a description of the data in each column:**
+To prepare the data for analysis, we performed several cleaning and feature engineering steps. First, irrelevant columns such as Geotype and Georank were excluded to streamline the dataset. The datasets were then merged using the GeoID column and temporal identifiers, ensuring alignment across PM2.5, NO, and NO2 measurements. Next, the TimePeriod column was converted into numerical formats to reflect fractional years (e.g., "Winter 2022" became 2022.25), and annual averages were removed to focus on seasonal trends. Missing values were addressed through linear interpolation, ensuring data continuity without introducing bias. Finally, pollutant concentrations were standardized, with NO and NO2 levels converted to micrograms per cubic meter (mcg/m³) to maintain consistency across features. 
 
-- TimePeriod: Represents the time frame for the data, such as "Annual Average 2022".
+**Here is the cleaned and merged data:**
 
-- GeoType: Specifies the geographic type, e.g., "CD" (likely referring to community districts or similar entities).
-
-- GeoID: A unique identifier for each geographic area.
-
-- GeoRank: Represents the rank of the geographic area based on some criteria.
-
-- Geography: Descriptive name of the geographic area (e.g., "Financial District (CD1)").
-
-- 10th percentile ppb: The 10th percentile of measured Air Pollutants (NO2 or NO) levels in parts per billion (ppb).
-
-- 90th percentile ppb: The 90th percentile of measured Air Pollutants (or NO2 or NO) levels in parts per billion (ppb).
-
-- Mean ppb: The average measured Air Pollutants (NO2 or NO) levels in parts per billion (ppb).
-
-**Similar to PM2.5 dataset, except that:**
-
-- 10th percentile mcg/m³: The 10th percentile of measured fine particulate matter (PM2.5) levels in micrograms per cubic meter (mcg/m³).
-
-- 90th percentile mcg/m³: The 90th percentile of measured fine particulate matter (PM2.5) levels in micrograms per cubic meter (mcg/m³).
-
-- Mean mcg/m³: The average measured fine particulate matter (PM2.5) levels in micrograms per cubic meter (mcg/m³).
 
 
 ## Setting up your Project Website
