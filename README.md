@@ -83,7 +83,13 @@ The R² metric provides insight into the proportion of variance in PM2.5 levels 
 By comparing these metrics across Linear Regression, Ridge Regression, Random Forest, and Gradient Boosting models, it is able to identify the most reliable approach for predicting urban PM2.5 concentrations. The model demonstrating the highest R² and lowest RMSE and MAE would be considered the most suitable for accurately forecasting particulate matter levels. Here is the results:
 
 
-<img src="assets/+++++++.png" height="500" width="auto">
+| Model               | R²       | RMSE     | MAE      |
+|---------------------|----------|----------|----------|
+| Linear Regression   | 0.732425 | 0.826285 | 0.643181 |
+| Ridge Regression    | 0.732441 | 0.826260 | 0.643223 |
+| Random Forest       | 0.876806 | 0.560663 | 0.387460 |
+| Gradient Boosting   | 0.879560 | 0.554362 | 0.391434 |
+
 
 Table 1: Performance Metrics Results For Regression Models Table
 
