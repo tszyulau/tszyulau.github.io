@@ -77,32 +77,25 @@ The R² metric provides insight into the proportion of variance in PM2.5 levels 
 By comparing these metrics across Linear Regression, Ridge Regression, Random Forest, and Gradient Boosting models, it is able to identify the most reliable approach for predicting urban PM2.5 concentrations. The model demonstrating the highest R² and lowest RMSE and MAE would be considered the most suitable for accurately forecasting particulate matter levels. Here is the results:
 
 
-
-
-The research employed a data-driven approach, leveraging machine learning techniques to unravel the complex relationships between air pollutants. Three key variables—mean nitrogen oxide (NO) concentration, mean nitrogen dioxide (NO2) concentration, and measurement year—formed the foundation of the predictive model. This carefully selected feature set allowed for a nuanced exploration of pollution trends, capturing both chemical interactions and temporal variations. The investigation utilized an ensemble machine learning methodology, implementing multiple regression techniques to identify the most effective predictive approach. The dataset was strategically divided, with 80% allocated to training and 20% reserved for testing, ensuring robust model validation. A consistent random state of 42 guaranteed reproducibility—a critical consideration in scientific research that allows for independent verification and future comparative studies.
-Sophisticated Model Selection
-
-
-
-Gradient Boosting: The Optimal Approach
-The Gradient Boosting model distinguished itself through superior predictive capabilities. Its ability to capture complex non-linear relationships made it particularly well-suited for the intricate dynamics of urban air pollution.
-Visualization and Trend Analysis
-Beyond pure prediction, the research extended to comprehensive trend visualization:
-
-Multi-line plots revealing actual trends of PM2.5, NO, and NO2 concentrations
-Comparative visualizations of actual and predicted PM2.5 levels
-Detailed annual pollutant level analyses
-
-Advantages of the Approach
-The machine learning methodology offered several critical advantages:
-
-Comprehensive understanding of pollutant interactions
-Ability to capture both linear and non-linear relationships
-Robust predictive capabilities across complex environmental datasets
-Potential for generating actionable insights into urban air quality dynamics
-
+<img src="assets/+++++++.png" height="500" width="auto">
 
 **Table 1: Performance Metrics Results For Regression Models Table
+
+
+Linear Regression and Ridge Regression showed remarkably similar performance, with near-identical R² values around 0.732 and RMSE values approximately 0.826. These linear models explained roughly 73% of the variance in PM2.5 levels but exhibited relatively high prediction errors, suggesting limitations in capturing the complex relationships between pollutants.
+
+While Random Forest and Gradient Boosting have demonstrated significantly improved predictive capabilities. The Random Forest model achieved an R² of 0.877, reducing the RMSE to 0.561 and the MAE to 0.387, indicating a substantial improvement over linear approaches. The Gradient Boosting model further enhanced these results, achieving the highest R² of 0.880, the lowest RMSE of 0.554, and an MAE of 0.391.
+
+Ultimately, from the metrics result table, we can conclude that the Gradient Boosting model emerged as the most effective approach, suggesting that it can most accurately forecast PM2.5 concentrations. Therefore, Gradient Boosting model is used for subsequent trend analysis and pollution prediction in this urban environmental study below.
+
+
+
+
+Visualization and Trend Analysis
+
+
+
+
 
 
 
