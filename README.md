@@ -35,7 +35,7 @@ https://a816-dohbesp.nyc.gov/IndicatorPublic/data-explorer/air-quality/?id=2023#
 ![]
 **Figure 3: NO Dataset. Provides similar statistics for nitric oxide (NO), including Mean ppb, 10th percentile, and 90th percentile values.**
 
-The analysis was conducted using three key datasets representing pollution metrics in New York City: fine particles (PM2.5), nitric oxide (NO), and nitrogen dioxide (NO2). Each dataset provided seasonal and annual averages of pollutant concentrations alongside geographical identifiers. The PM2.5 dataset included columns such as GeoID (a unique geographical identifier), Year, and PM2.5 Levels (measured in micrograms per cubic meter, mcg/m³). Similarly, the NO and NO2 datasets contained GeoID, TimePeriod (e.g., "Summer 2022"), and respective pollutant levels, along with metadata fields like Geotype and Georank.
+The analysis was conducted using three key datasets representing pollution metrics in New York City: fine particles (PM2.5), nitric oxide (NO), and nitrogen dioxide (NO2). Each dataset has provided seasonal and annual averages of a specific pollutant concentrations alongside geographical identifiers in new york City. The PM2.5 dataset included columns such as GeoID (a geographical identifier), Year, and PM2.5 Levels (measured in micrograms per cubic meter, mcg/m³). Similarly, the NO and NO2 datasets contained GeoID, TimePeriod (e.g., "Summer 2022"), and respective pollutant levels (measured in ppb), along with metadata fields like Geotype and Georank.
 
 To prepare the data for analysis, several cleaning and feature editting were performed. First, irrelevant columns such as Annual Average, Geography, Geotype and Georank were excluded to streamline the dataset. Next, the TimePeriod column was converted into numerical formats to reflect fractional years (e.g., "Summer 2022" became 2022.625), and annual averages were removed to focus on seasonal trends. Missing values were addressed through fillna function with median, which provides a central tendency of the entire column regardless of the distribution, ensuring data continuity without introducing bias. The datasets were then merged using the GeoID column and temporal identifiers, ensuring alignment across PM2.5, NO, and NO2 measurements. Finally, unit of pollutant concentrations were standardized, with mean NO and NO2 levels converted from ppb units to micrograms per cubic meter (mcg/m³) to maintain consistency across features. 
 
@@ -47,20 +47,59 @@ To prepare the data for analysis, several cleaning and feature editting were per
 
 ## Modelling 
 
-The first step of modelling is to select an accurate model for the anlysis. In evaluating the predictive performance of PM2.5 levels, I researched multiple regression models that are potential to fit the trend plot and hence perform prediction model. 
+The research is data-driven. The project aimed to develop a predictive model for understanding effects of traffic emissions in particulate matter (PM2.5) concentrations in the New York City by setting up differnt reduction scenarios. The first step of modelling is to select the best model for the anlysis. 
 
 
-The feature set for PM2.5 prediction comprises three key variables: mean NO concentration, mean NO2 concentration, and the year of measurement. An ensemble machine learning approach was employed, utilizing four regression models: Linear Regression, Ridge Regression, Random Forest, and Gradient Boosting. Linear Regression served as the baseline model to capture linear relationships between predictors and PM2.5 levels. Ridge Regression incorporated L2 regularization to mitigate overfitting and handle potential multicollinearity. Random Forest applied an ensemble of decision trees to capture non-linear interactions. Gradient Boosting utilized sequential tree-building to create a robust predictive model. The dataset was split into training (80%) and testing (20%) sets using a random state of 42 to ensure reproducibility.
+The feature set for PM2.5 prediction comprises three key variables: mean NO concentration, mean NO2 concentration, and the year of measurement. The investigation utilized an ensemble machine learning methodology, implementing multiple regression techniques to identify the most effective predictive approach. Firstly, a consistent random state of 42 is implemented for effective reproducibility. Then, four regression models were systematically evaluated:
+
+- Linear Regression: Established a baseline model to capture fundamental linear relationships between predictors and PM2.5 levels. While simple, this approach provides an initial understanding of direct correlational patterns.
+
+- Ridge Regression: Incorporated advanced regularization techniques to mitigate overfitting and address potential multicollinearity. This method is particularly valuable in environmental datasets where predictor variables often exhibit complex interdependencies.
+
+- Random Forest: Utilized an ensemble of decision trees to capture non-linear interactions and sophisticated patterns that linear models might overlook. This approach excels in revealing nuanced relationships hidden within complex environmental data.
+
+- Gradient Boosting: Emerged as the most sophisticated technique, employing sequential tree-building to create a robust predictive model capable of capturing intricate relationships between pollutant variables.
 
 
 Ridge Regression and Random Forest models underwent systematic hyperparameter optimization using GridSearchCV with 5-fold cross-validation. For Ridge Regression, alpha values of [0.01, 0.1, 1, 10, 100] were explored to find the optimal regularization strength. The Random Forest model was tuned by varying the number of estimators (100, 200) and maximum tree depth (5, 10, None), with the selection criterion based on R² score. The analysis of prediction models relies on the application of cross-validation techniques and hyperparameter tuning through GridSearchCV to optimize model performance and prevent overfitting.
 
 
-To determine the most effective model, three key performance metrics were meticulously analyzed: R² (Coefficient of Determination), RMSE (Root Mean Square Error), and MAE (Mean Absolute Error). The R² metric provides insight into the proportion of variance in PM2.5 levels that can be explained by the independent variables, offering a measure of the model's explanatory power. A higher R² value indicates a more robust model that captures the underlying patterns in the data more effectively. The Root Mean Square Error (RMSE) complements this by quantifying the average magnitude of prediction errors, giving more weight to larger discrepancies and providing a nuanced view of the model's accuracy. Mean Absolute Error (MAE) offers an additional perspective by calculating the average absolute difference between predicted and actual values, which is particularly useful for understanding the model's predictive performance in a more straightforward manner.
+To determine the most effective model, three key performance metrics were meticulously analyzed: 
+
+- R² (Coefficient of Determination),
+- RMSE (Root Mean Square Error), 
+- MAE (Mean Absolute Error).
+
+  
+The R² metric provides insight into the proportion of variance in PM2.5 levels that can be explained by the independent variables, offering a measure of the model's explanatory power. A higher R² value indicates a more robust model that captures the underlying patterns in the data more effectively. The Root Mean Square Error (RMSE) complements this by quantifying the average magnitude of prediction errors, giving more weight to larger discrepancies and providing a nuanced view of the model's accuracy. Mean Absolute Error (MAE) offers an additional perspective by calculating the average absolute difference between predicted and actual values, which is particularly useful for understanding the model's predictive performance in a more straightforward manner.
 
 
 By comparing these metrics across Linear Regression, Ridge Regression, Random Forest, and Gradient Boosting models, it is able to identify the most reliable approach for predicting urban PM2.5 concentrations. The model demonstrating the highest R² and lowest RMSE and MAE would be considered the most suitable for accurately forecasting particulate matter levels. Here is the results:
 
+
+
+
+The research employed a data-driven approach, leveraging machine learning techniques to unravel the complex relationships between air pollutants. Three key variables—mean nitrogen oxide (NO) concentration, mean nitrogen dioxide (NO2) concentration, and measurement year—formed the foundation of the predictive model. This carefully selected feature set allowed for a nuanced exploration of pollution trends, capturing both chemical interactions and temporal variations. The investigation utilized an ensemble machine learning methodology, implementing multiple regression techniques to identify the most effective predictive approach. The dataset was strategically divided, with 80% allocated to training and 20% reserved for testing, ensuring robust model validation. A consistent random state of 42 guaranteed reproducibility—a critical consideration in scientific research that allows for independent verification and future comparative studies.
+Sophisticated Model Selection
+
+
+
+Gradient Boosting: The Optimal Approach
+The Gradient Boosting model distinguished itself through superior predictive capabilities. Its ability to capture complex non-linear relationships made it particularly well-suited for the intricate dynamics of urban air pollution.
+Visualization and Trend Analysis
+Beyond pure prediction, the research extended to comprehensive trend visualization:
+
+Multi-line plots revealing actual trends of PM2.5, NO, and NO2 concentrations
+Comparative visualizations of actual and predicted PM2.5 levels
+Detailed annual pollutant level analyses
+
+Advantages of the Approach
+The machine learning methodology offered several critical advantages:
+
+Comprehensive understanding of pollutant interactions
+Ability to capture both linear and non-linear relationships
+Robust predictive capabilities across complex environmental datasets
+Potential for generating actionable insights into urban air quality dynamics
 
 
 **Table 1: Performance Metrics Results For Regression Models Table
