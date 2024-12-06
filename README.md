@@ -25,15 +25,31 @@ The analysis uses three datasets collected from New York City’s Environmental 
 https://a816-dohbesp.nyc.gov/IndicatorPublic/data-explorer/air-quality/?id=2023#display=summary
 
 
-<img src="assets/original_2.5.png" height="500" width="auto">
+
+
+<img src="assets/original_2.5.png" height="300" width="auto">
+
+
 Figure 1: PM2.5 Dataset. Contains annual average PM2.5 concentrations (Mean mcg/m3), along with 10th percentile and 90th percentile values.
 
 
-<img src="assets/original_NO2.png" height="500" width="auto">
+
+
+<img src="assets/original_NO2.png" height="300" width="auto">
+
+
 Figure 2: NO2 Dataset. Includes annual average NO2 levels (Mean ppb), 10th percentile, and 90th percentile data.
 
-<img src="assets/original_NO.png" height="500" width="auto">
+
+
+
+<img src="assets/original_NO.png" height="300" width="auto">
+
+
 Figure 3: NO Dataset. Provides similar statistics for nitric oxide (NO), including Mean ppb, 10th percentile, and 90th percentile values.
+
+
+
 
 The analysis was conducted using three key datasets representing pollution metrics in New York City: fine particles (PM2.5), nitric oxide (NO), and nitrogen dioxide (NO2). Each dataset has provided seasonal and annual averages of a specific pollutant concentrations alongside geographical identifiers in new york City. The PM2.5 dataset included columns such as GeoID (a geographical identifier), Year, and PM2.5 Levels (measured in micrograms per cubic meter, mcg/m³). Similarly, the NO and NO2 datasets contained GeoID, TimePeriod (e.g., "Summer 2022"), and respective pollutant levels (measured in ppb), along with metadata fields like Geotype and Georank.
 
@@ -41,9 +57,15 @@ To prepare the data for analysis, several cleaning and feature editting were per
 
 Here is the cleaned and merged data:
 
-<img src="assets/merge.png" height="500" width="auto">
+
+
+
+<img src="assets/merge.png" height="300" width="auto">
 
 Figure 4: Cleaned Dataset
+
+
+
 
 ## Modelling 
 
