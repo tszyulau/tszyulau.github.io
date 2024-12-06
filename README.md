@@ -26,28 +26,31 @@ https://a816-dohbesp.nyc.gov/IndicatorPublic/data-explorer/air-quality/?id=2023#
 
 
 
-**Figure 1: PM2.5 Dataset. Contains annual average PM2.5 concentrations (Mean mcg/m3), along with 10th percentile and 90th percentile values.**
+Figure 1: PM2.5 Dataset. Contains annual average PM2.5 concentrations (Mean mcg/m3), along with 10th percentile and 90th percentile values.
 
 
 ![]
-**Figure 2: NO2 Dataset. Includes annual average NO2 levels (Mean ppb), 10th percentile, and 90th percentile data.**
+Figure 2: NO2 Dataset. Includes annual average NO2 levels (Mean ppb), 10th percentile, and 90th percentile data.
 
 ![]
-**Figure 3: NO Dataset. Provides similar statistics for nitric oxide (NO), including Mean ppb, 10th percentile, and 90th percentile values.**
+Figure 3: NO Dataset. Provides similar statistics for nitric oxide (NO), including Mean ppb, 10th percentile, and 90th percentile values.
 
 The analysis was conducted using three key datasets representing pollution metrics in New York City: fine particles (PM2.5), nitric oxide (NO), and nitrogen dioxide (NO2). Each dataset has provided seasonal and annual averages of a specific pollutant concentrations alongside geographical identifiers in new york City. The PM2.5 dataset included columns such as GeoID (a geographical identifier), Year, and PM2.5 Levels (measured in micrograms per cubic meter, mcg/m³). Similarly, the NO and NO2 datasets contained GeoID, TimePeriod (e.g., "Summer 2022"), and respective pollutant levels (measured in ppb), along with metadata fields like Geotype and Georank.
 
 To prepare the data for analysis, several cleaning and feature editting were performed. First, irrelevant columns such as Annual Average, Geography, Geotype and Georank were excluded to streamline the dataset. Next, the TimePeriod column was converted into numerical formats to reflect fractional years (e.g., "Summer 2022" became 2022.625), and annual averages were removed to focus on seasonal trends. Missing values were addressed through fillna function with median, which provides a central tendency of the entire column regardless of the distribution, ensuring data continuity without introducing bias. The datasets were then merged using the GeoID column and temporal identifiers, ensuring alignment across PM2.5, NO, and NO2 measurements. Finally, unit of pollutant concentrations were standardized, with mean NO and NO2 levels converted from ppb units to micrograms per cubic meter (mcg/m³) to maintain consistency across features. 
 
-**Here is the cleaned and merged data:**
+Here is the cleaned and merged data:
 
 
 
-**Figure 4: Cleaned Dataset**
+Figure 4: Cleaned Dataset
 
 ## Modelling 
 
 The research is data-driven. The project aimed to develop a predictive model for understanding effects of traffic emissions in particulate matter (PM2.5) concentrations in the New York City by setting up differnt reduction scenarios. The first step of modelling is to select the best model for the anlysis. 
+
+
+### Model Options and Optimization
 
 
 The feature set for PM2.5 prediction comprises three key variables: mean NO concentration, mean NO2 concentration, and the year of measurement. The investigation utilized an ensemble machine learning methodology, implementing multiple regression techniques to identify the most effective predictive approach. Firstly, a consistent random state of 42 is implemented for effective reproducibility. Then, four regression models were systematically evaluated:
@@ -64,6 +67,9 @@ The feature set for PM2.5 prediction comprises three key variables: mean NO conc
 Ridge Regression and Random Forest models underwent systematic hyperparameter optimization using GridSearchCV with 5-fold cross-validation. For Ridge Regression, alpha values of [0.01, 0.1, 1, 10, 100] were explored to find the optimal regularization strength. The Random Forest model was tuned by varying the number of estimators (100, 200) and maximum tree depth (5, 10, None), with the selection criterion based on R² score. The analysis of prediction models relies on the application of cross-validation techniques and hyperparameter tuning through GridSearchCV to optimize model performance and prevent overfitting.
 
 
+
+### Performance Metrics and Model Selection 
+
 To determine the most effective model, three key performance metrics were meticulously analyzed: 
 
 - R² (Coefficient of Determination),
@@ -79,14 +85,16 @@ By comparing these metrics across Linear Regression, Ridge Regression, Random Fo
 
 <img src="assets/+++++++.png" height="500" width="auto">
 
-**Table 1: Performance Metrics Results For Regression Models Table
+Table 1: Performance Metrics Results For Regression Models Table
 
+
+### Performance Metrics Results
 
 Linear Regression and Ridge Regression showed remarkably similar performance, with near-identical R² values around 0.732 and RMSE values approximately 0.826. These linear models explained roughly 73% of the variance in PM2.5 levels but exhibited relatively high prediction errors, suggesting limitations in capturing the complex relationships between pollutants.
 
 While Random Forest and Gradient Boosting have demonstrated significantly improved predictive capabilities. The Random Forest model achieved an R² of 0.877, reducing the RMSE to 0.561 and the MAE to 0.387, indicating a substantial improvement over linear approaches. The Gradient Boosting model further enhanced these results, achieving the highest R² of 0.880, the lowest RMSE of 0.554, and an MAE of 0.391.
 
-Ultimately, from the metrics result table, we can conclude that the Gradient Boosting model emerged as the most effective approach, suggesting that it can most accurately forecast PM2.5 concentrations. Therefore, Gradient Boosting model is used for subsequent trend analysis and pollution prediction in this urban environmental study below.
+Ultimately, from the metrics result table, we can conclude that the **Gradient Boosting model** is able to explains about 87.96% of the variance in PM2.5 levels effectively, indicating a strong predictive capability and emerged as the most effective approach to accurately forecast PM2.5 concentrations. Therefore, Gradient Boosting model is used for subsequent trend analysis and pollution prediction in this study below.
 
 
 
@@ -106,7 +114,11 @@ Visualization and Trend Analysis
 
 ** Figure : Trend Plot of New York Air Pollutant Concentration Level (NOx and PM2.5) From 2009 to 2022
 
-Based on the performance metrics, the Gradient Boosting model emerges as the most promising approach for PM2.5 prediction. It has the highest R² of 0.8796 and the lowest RMSE of 0.5544. This model slightly outperforms the Random Forest model, which shows similar characteristics but with marginally lower performance metrics. The results tell us that the Gradient Boosting model is able to explains about 87.96% of the variance in PM2.5 levels effectively, indicating a strong predictive capability. Therefore, the Gradient Boosting model is chosen for further analysis.
+
+
+
+
+
 
 
 ### How to copy this site as a template
