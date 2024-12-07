@@ -8,7 +8,7 @@ In order to predict the impacts traffic emission contribute to PM 2.5 urban emis
 
   Air pollution is one of the leading environmental challenges. In urban areas, traffic emissions are a primary contributor to PM2.5 levels, with pollutants like nitric oxide (NO) and nitrogen dioxide (NO2) playing key roles in the formation of secondary particulate matter, which is posing significant health risks. PM2.5 particles, which are small enough to penetrate deep into the lungs and bloodstream, are linked to respiratory and cardiovascular diseases, and even premature mortality [1].  In New York city, 14 percent of current yearly PM2.5 emission comes from local vehicle emissions, which place it as the second largest PM2.5 emission source [2]. Specifically, while researches have stated approximately that 4% to 37% of NOx, a major vehicle emission, is known to contribute to the formation of PM2.5 through chemical reactions in the atmosphere, the degree to which reducing traffic emissions might lower PM2.5 concentrations is not straightforward [3]. Traffic emissions regulation is critical for formulating effective air quality management strategies. While local vehicles are something that can go under restrictions and regulate the emission, we should regulate vehicle emissions by promoting gasoline and diesel cars and trucks into EVs. The problem relies on quantifying this relationship between traffic-related emissions and PM2.5 levels. Using machine learning can help us in understanding this problem in depth by predicting patterns and effects and therefore can inform policies aimed at reducing traffic emissions, eventually improving urban air quality.
 
-  This project focuses on the air quality challenge in New York City, having datasets from the New York City Environmental Health Data Portal [4]. The datasets include PM2.5, NO, and NO2 levels for 2022. By cleaning the data and using machine learning techniques, we can modelize the trends and analyze the correlations between these pollutants and predict the impact of hypothetical traffic reductions. By using models like random forest and applying correlation weighting method, we can quantify the contribution of traffic emissions to PM2.5 and simulate the effects of reduced traffic emissions, for instance, a 5%, 10%, 15% and 90% of reduction in PM2.5, NO and NO2 levels. The results showed a measurable reduction in PM2.5 levels, emphasizing the importance of managing traffic emissions for better air quality. This project in machine learning aims to provides insights of current air quality situation and predict situations under different scenarios, highlighting the value of machine learning in environmental analysis. 
+  This project focuses on the air quality challenge in New York City, having datasets from the New York City Environmental Health Data Portal. The datasets include PM2.5, NO, and NO2 levels for 2022. By cleaning the data and using machine learning techniques, we can modelize the trends and analyze the correlations between these pollutants and predict the impact of hypothetical traffic reductions. By using models like random forest and applying correlation weighting method, we can quantify the contribution of traffic emissions to PM2.5 and simulate the effects of reduced traffic emissions, for instance, a 5%, 10%, 15% and 90% of reduction in PM2.5, NO and NO2 levels. The results showed a measurable reduction in PM2.5 levels, emphasizing the importance of managing traffic emissions for better air quality. This project in machine learning aims to provides insights of current air quality situation and predict situations under different scenarios, highlighting the value of machine learning in environmental analysis. 
 
 
   
@@ -256,13 +256,43 @@ The project is considered successful as the total reduction percentage should be
 
 Although the prediction is considered successful, several areas warrant further exploration to enhance the accuracy and applicability of these predictions.
 
-Firstly, the complexity of atmospheric conditions should be incorporated into future models. Thermodynamics variables such as wind direction, wind speed, atmospheric pressure, and the presence of inversion layers significantly influence the dispersion and concentration of pollutants. For instance, wind direction can transport emissions from other regions, impacting local air quality. Similarly, atmospheric pressure and inversion layers can trap pollutants close to the ground, exacerbating PM2.5 concentrations. Including these factors would require coupling machine learning models with meteorological data, potentially improving predictions and providing region-specific insights. Emission factors should be refined to account for variations based on wind direction and other meteorological conditions. Current models assume a uniform contribution of NOx to PM2.5, but this simplification overlooks the dynamic nature of chemical reactions in the atmosphere. Incorporating wind-adjusted emission factors could offer a more accurate representation of pollutant behavior and their contribution to secondary PM2.5 formation. 
+Firstly, the complexity of atmospheric conditions should be incorporated into future models. Thermodynamics variables such as wind direction, wind speed, atmospheric pressure, and the presence of inversion layers significantly influence the dispersion and concentration of pollutants. For instance, wind direction can transport emissions from other regions, impacting local air quality. Similarly, atmospheric pressure and inversion layers can trap pollutants close to the ground, exacerbating PM2.5 concentrations.[4] Including these factors would require coupling machine learning models with meteorological data, potentially improving predictions and providing region-specific insights. Emission factors should be refined to account for variations based on wind direction and other meteorological conditions. Current models assume a uniform contribution of NOx to PM2.5, but this simplification overlooks the dynamic nature of chemical reactions in the atmosphere. Incorporating wind-adjusted emission factors could offer a more accurate representation of pollutant behavior and their contribution to secondary PM2.5 formation. 
 
 
 Additionally, for future research, we can integrate health impact models with air pollution predictions. Machine learning can be utilized to link PM2.5 exposure levels to health outcomes, such as respiratory and cardiovascular diseases. By combining pollution data with health records and population demographics, models can predict the potential health benefits of various emission reduction strategies. Such analyses would provide policymakers with a more holistic understanding of the socio-economic benefits of improving air quality. Real-time air quality monitoring and satellite data integration can complement the existing dataset. These sources provide high-resolution temporal and spatial data, capturing fluctuations in pollution levels more effectively than annual averages. Incorporating such data would enhance the robustness of the predictions and enable dynamic scenario modeling.
 
 
-While the current study focuses on NO and NO2 as primary contributors to PM2.5, it is essential to address broader concerns related to environmental injustice, environmental health, and climate change. Marginalized communities often bear the disproportionate burden of air pollution, facing higher exposure levels and associated health risks. Integrating these dimensions into future models can help highlight disparities and support targeted interventions to achieve environmental equity. Additionally, understanding the interplay between air pollution and climate change is crucial, as pollutants like NOx and PM2.5 contribute to global warming and exacerbate climate-related health issues. Exploring the roles of other pollutants, such as volatile organic compounds (VOCs) and sulfur dioxide (SO2), could further refine the model to provide a more comprehensive view of air pollution dynamics and their broader implications. These pollutants also play critical roles in secondary PM2.5 formation and should be included in future analyses to provide a more comprehensive view of air pollution dynamics.
+While the current study focuses on NO and NO2 as primary contributors to PM2.5, it is essential to address broader concerns related to environmental injustice, environmental health, and climate change. Marginalized communities often bear the disproportionate burden of air pollution, facing higher exposure levels and associated health risks.[5] Integrating these dimensions into future models can help highlight disparities and support targeted interventions to achieve environmental equity. Additionally, understanding the interplay between air pollution and climate change is crucial, as pollutants like NOx and PM2.5 contribute to global warming and exacerbate climate-related health issues. Exploring the roles of other pollutants, such as volatile organic compounds (VOCs) and sulfur dioxide (SO2), could further refine the model to provide a more comprehensive view of air pollution dynamics and their broader implications.[6] These pollutants also play critical roles in secondary PM2.5 formation and should be included in future analyses to provide a more comprehensive view of air pollution dynamics.
+
+
+
+## References
+[1] The New York City Community Air Survey, Neighborhood Air Quality 2008-2019
+https://nyccas.cityofnewyork.us/nyccas2021v9/report/2#:~:text=Fuel%20combustion%20in%20vehicles%2C%20boilers,common%20sources%20of%20PM2.5
+
+
+[2] The public health impacts of PM2.5 from traffic air pollution, Environmental Data Portal, New York Government
+https://a816-dohbesp.nyc.gov/IndicatorPublic/data-stories/traffic-and-air-pollution/
+
+
+[3] William M. Hodan, William R. Barnard, Evaluating the Contribution of PM2.5 Precursor Gases and Re-entrained Road Emissions to Mobile Source PM2.5 Particulate Matter Emissions 
+https://www3.epa.gov/ttnchie1/conference/ei13/mobile/hodan.pdf
+
+
+[4] How Weather Affects Air Quality, *Center for Science Education*
+https://scied.ucar.edu/learning-zone/air-quality/how-weather-affects-air-quality
+
+
+
+[5] Rahanna N. Khan, Antonio F. Saporito, Traffic-related air pollution in marginalized neighborhoods: a community perspective (2024)
+https://www.tandfonline.com/doi/full/10.1080/08958378.2024.2331259
+
+
+
+[6] Wei Wei, Saisai Chen, Yue Wang, The impacts of VOCs on PM2.5 increasing via their chemical losses estimates: A case study in a typical industrial city of China, *ScienceDirect* (2022) 
+https://www.sciencedirect.com/science/article/pii/S1352231022000437
+
+
 
 
 
