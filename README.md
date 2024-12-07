@@ -180,7 +180,7 @@ The first plot visualizes actual average yearly trends of PM2.5, NO, and NO2, pr
 Correlation analysis is crucial for this project as it helps quantify the strength of the relationships between pollutants, allowing us to identify which variables have the most influence on PM2.5 levels. Understanding these relationships ensures that the most impactful features are prioritized in predictive models.
 
 
-<img src="assets/corrp.png" height="500" width="auto">
+<img src="assets/corrp.png" height="300" width="200">
 
 Figure 7: Correlation Heat Map 
 
