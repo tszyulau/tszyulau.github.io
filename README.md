@@ -213,7 +213,7 @@ For each reduction scenario, adjusted NO and NO2 levels are input into the PM2.5
 
 The calculation uses the weighted contributions of NO and NO2 (combined as NOx) to determine their impact on PM2.5 levels. Correlation weights are applied to NO and NO2 to compute a weighted NOx value that reflects their influence on PM2.5. The contribution of NOx to PM2.5 is calculated as 5% of this weighted NOx, aligning with the theory that around 5% of NOx contributes to secondary PM2.5 formation through atmospheric chemical reactions.  For each reduction scenario, the levels of NO and NO2 are reduced by the specified factor (e.g., 5%, 10%, 15%, and 90%) to simulate the effects of emission reductions. Adjusted levels are input into the Random Forest model to predict the corresponding PM2.5 levels. The total reduction percentage is then calculated as:
 
-$'Total Reduction (%)= Original PM2.5 − ( Traffic PM2.5 Contribution + NOx Contribution to PM2.5 ) Original PM2.5 x 100'$
+$'Total Reduction (%) = Original PM2.5 − ( Traffic PM2.5 Contribution + NOx Contribution to PM2.5 ) Original PM2.5 x 100'$
 
 
 
@@ -229,29 +229,24 @@ For each scenario, the table records the original PM2.5 concentration, the predi
 
 
 
+## Conclusion 
+
+
+The project is considered successful as the total reduction percentage should be larger as the reduction factor increases, but less than 14% for the 90% prediction result. The project can effectively integrates correlation-based weighting and advanced machine learning models to predict air pollution trends and evaluate the impact of emission reduction scenarios in New York City. By using Random Forest for PM2.5 prediction and carefully selecting models for NO and NO2, the analysis achieves accurate predictions that align with observed relationships. The application of correlation weights ensures that NOx contributions to PM2.5 are realistically represented, offering actionable insights into the formation of secondary pollutants. Reduction scenarios demonstrate significant potential for improving air quality, with reductions in NOx leading to measurable decreases in PM2.5 levels. The final result table highlights the effect of various reduction factors, such as the notable 12.83% total PM2.5 reduction achieved under a 90% NOx reduction scenario. This emphasizes the importance of targeted emission control strategies for improving public health and urban environments. The methodology provides a robust framework for assessing pollution dynamics and the efficacy of interventions, supporting data-driven environmental policy development.
+
+
+## Discussion
+
+Although the prediction is considered successful, several areas warrant further exploration to enhance the accuracy and applicability of these predictions.
+
+Firstly, the complexity of atmospheric conditions should be incorporated into future models. Thermodynamics variables such as wind direction, wind speed, atmospheric pressure, and the presence of inversion layers significantly influence the dispersion and concentration of pollutants. For instance, wind direction can transport emissions from other regions, impacting local air quality. Similarly, atmospheric pressure and inversion layers can trap pollutants close to the ground, exacerbating PM2.5 concentrations. Including these factors would require coupling machine learning models with meteorological data, potentially improving predictions and providing region-specific insights. Emission factors should be refined to account for variations based on wind direction and other meteorological conditions. Current models assume a uniform contribution of NOx to PM2.5, but this simplification overlooks the dynamic nature of chemical reactions in the atmosphere. Incorporating wind-adjusted emission factors could offer a more accurate representation of pollutant behavior and their contribution to secondary PM2.5 formation. 
+
+
+Additionally, for future research, we can integrate health impact models with air pollution predictions. Machine learning can be utilized to link PM2.5 exposure levels to health outcomes, such as respiratory and cardiovascular diseases. By combining pollution data with health records and population demographics, models can predict the potential health benefits of various emission reduction strategies. Such analyses would provide policymakers with a more holistic understanding of the socio-economic benefits of improving air quality. Real-time air quality monitoring and satellite data integration can complement the existing dataset. These sources provide high-resolution temporal and spatial data, capturing fluctuations in pollution levels more effectively than annual averages. Incorporating such data would enhance the robustness of the predictions and enable dynamic scenario modeling.
+
+
+While the current study focuses on NO and NO2 as primary contributors to PM2.5, it is essential to address broader concerns related to environmental injustice, environmental health, and climate change. Marginalized communities often bear the disproportionate burden of air pollution, facing higher exposure levels and associated health risks. Integrating these dimensions into future models can help highlight disparities and support targeted interventions to achieve environmental equity. Additionally, understanding the interplay between air pollution and climate change is crucial, as pollutants like NOx and PM2.5 contribute to global warming and exacerbate climate-related health issues. Exploring the roles of other pollutants, such as volatile organic compounds (VOCs) and sulfur dioxide (SO2), could further refine the model to provide a more comprehensive view of air pollution dynamics and their broader implications. These pollutants also play critical roles in secondary PM2.5 formation and should be included in future analyses to provide a more comprehensive view of air pollution dynamics.
 
 
 
-## Guide to Adding Content
-* Your repository's `README.md` file (the file you are reading now) acts like a home page. Replace its contents with whatever you want the world to see by editing the file on GitHub.
-* If you want to turn this page into a CV or blog, etc., it may be useful to refer to a [guide for writing Markdown](https://www.markdownguide.org/basic-syntax/).
-* You can create other markdown files (.md) in your repository and navigate to them from this page using links, i.e.: [here is a link to another file, `project.md`](project.md)
-* When editing a markdown file on GitHub, it is useful to wrap text by selecting the *Soft wrap* option as shown: ![screenshot](/assets/IMG/instr_wrap.png)
-* If you want to get even more technical, you can also write HTML in your .md files, and GitHub Pages will render it. For example, the image below is displayed by writing the following (edit this file to see!): `<img align="right" width="200" height="200" src="/assets/IMG/template_frog.png">`
-<img align="right" width="337" height="200" src="/assets/IMG/template_frog.png"> 
-
-***
-
-## Delivering your Project
-
-Your final project is delivered in two components: a report and your code.
-
-### Report
-
-Your report should be **delivered via your website**. Submit a link to your website on BruinLearn so that your instructor can browse it to find your report. 
-
-To make this simple, you can write the report using a word processor or Latex, then export it as a .pdf file and upload it to the `assets` directory. You can then link to it [like so](/assets/project_demo.pdf). However, you can also type the report directly onto the website using another markdown page - [here is](/project.md) a template for that.
-
-### Code
-
-A link to your code must be submitted on BruinLearn, and the course instructor must be able to download your code to mark it. The code could be in a Google Colab notebook (make sure to *share* the notebook so access is set to **Anyone with the link**), or you could upload the code into a separate GitHub repository, or you could upload the code into the `assets` directory of your website and link to it. 
+### *Thank You for Reading ;)*
