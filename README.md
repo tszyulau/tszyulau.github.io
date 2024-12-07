@@ -180,7 +180,7 @@ The first plot visualizes actual average yearly trends of PM2.5, NO, and NO2, pr
 Correlation analysis is crucial for this project as it helps quantify the strength of the relationships between pollutants, allowing us to identify which variables have the most influence on PM2.5 levels. Understanding these relationships ensures that the most impactful features are prioritized in predictive models.
 
 
-<img src="assets/corrp.png" height="300" width="200">
+<img src="assets/corrp.png" height="300" width="auto">
 
 Figure 7: Correlation Heat Map 
 
@@ -215,7 +215,7 @@ The calculation uses the weighted contributions of NO and NO2 (combined as NOx) 
 
 
 
-$'Total Reduction (%) = Original PM2.5 − ( Traffic PM2.5 Contribution + NOx Contribution to PM2.5 ) Original PM2.5 x 100'$
+$Total Reduction(%)= Original PM2.5 − ( Traffic PM2.5 Contribution + NOx Contribution to PM2.5 ) Original PM2.5 * 100$
 
 
 
