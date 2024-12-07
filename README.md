@@ -1,5 +1,5 @@
 ## Machine Learning Models to Analyze the Impact of Traffic Emissions on PM2.5 Levels in New York City
-To predict PM2.5 levels in urban environments, an ensemble machine learning approach is applied using linear regression, ridge regression, random forest, and gradient boosting decision trees.
+To predict PM2.5 levels in urban environments, an ensemble machine learning approach is applied using gradient boosting decision trees.
 
 
 
@@ -53,7 +53,7 @@ Figure 3: NO Dataset. Provides similar statistics for nitric oxide (NO), includi
 
 The analysis was conducted using three key datasets representing pollution metrics in New York City: fine particles (PM2.5), nitric oxide (NO), and nitrogen dioxide (NO2). Each dataset has provided seasonal and annual averages of a specific pollutant concentrations alongside geographical identifiers in new york City. The PM2.5 dataset included columns such as GeoID (a geographical identifier), Year, and PM2.5 Levels (measured in micrograms per cubic meter, mcg/m³). Similarly, the NO and NO2 datasets contained GeoID, TimePeriod (e.g., "Summer 2022"), and respective pollutant levels (measured in ppb), along with metadata fields like Geotype and Georank.
 
-To prepare the data for analysis, several cleaning and feature editting were performed. First, irrelevant columns such as Geography, Geotype and Georank were excluded to streamline the dataset. Next, the TimePeriod column was converted into numerical formats to reflect fractional years (e.g. Filter out "Annual Average", change "Summer 2022" to 2022.625). Missing values were addressed through fillna function with median, which provides a central tendency of the entire column regardless of the distribution, ensuring data continuity without introducing bias. The datasets were then merged using the GeoID column and temporal identifiers, ensuring alignment across PM2.5, NO, and NO2 measurements. Duplicated data with same GeoID and Year after merging are filtered out. Finally, unit of pollutant concentrations were standardized, with mean NO and NO2 levels converted from ppb units to micrograms per cubic meter (mcg/m³) to maintain consistency across features. 
+To prepare the data for analysis, several cleaning and feature editting were performed. First, from figure 2 and 3, it was noticed that there are columns with same names, which may prone error issuses when merging data. Therefore, 'Mean ppb' columns were renamed to distinguish between the air pollutants. Irrelevant columns such as '10 th percentile', '90 percentile', 'Geography', 'Geotype' and 'Georank' were excluded to streamline the dataset. Next, the TimePeriod column was converted into numerical formats to reflect fractional years (e.g. Filter out "Annual Average", change "Summer 2022" to 2022.625). Missing values were addressed through fillna function with median, which provides a central tendency of the entire column regardless of the distribution, ensuring data continuity without introducing bias. The datasets were then merged using the GeoID column and temporal identifiers, ensuring alignment across PM2.5, NO, and NO2 measurements. Finally, unit of pollutant concentrations were standardized, with mean NO and NO2 levels converted from ppb units to micrograms per cubic meter (mcg/m³) to maintain consistency across features. 
 
 Here is the cleaned and merged data:
 
@@ -115,10 +115,10 @@ By comparing these metrics across Linear Regression, Ridge Regression, Random Fo
 
 | Model               | R²       | RMSE     | MAE      |
 |---------------------|----------|----------|----------|
-| Linear Regression   | 0.732425 | 0.826285 | 0.643181 |
-| Ridge Regression    | 0.732441 | 0.826260 | 0.643223 |
-| Random Forest       | 0.876806 | 0.560663 | 0.387460 |
-| Gradient Boosting   | 0.879560 | 0.554362 | 0.391434 |
+| Linear Regression   | 0.880504 | 0.641791 | 0.540031 |
+| Ridge Regression    | 0.880043 | 0.641981 | 0.540284 |
+| Random Forest       | 0.978882 | 0.269798 | 0.195891 |
+| Gradient Boosting   | 0.973872 | 0.300104 | 0.228590 |
 
 
 Table 1: Performance Metrics Results For Regression Models Table
