@@ -63,7 +63,7 @@ Here is the cleaned and merged data:
 
 
 
-<img src="assets/merge.png" height="300" width="auto">
+<img src="assets/mergep.png" height="300" width="auto">
 
 Figure 4: Cleaned Dataset
 
@@ -166,7 +166,7 @@ Figure 5: Trend Plot of New York Air Pollutant Concentration Level (NOx and PM2.
 ### PM2.5 Trend with Gradient Boosting Modelling Plot
 
 
-<img src="assets/2.png" height="500" width="auto">
+<img src="assets/2p.png" height="500" width="auto">
 
 Figure 6: Trend Plot of New York PM 2.5 Concentration Level From 2009 to 2022 and the Prediction Level using RandomForestRegressor Model
 
@@ -180,11 +180,11 @@ The first plot visualizes actual average yearly trends of PM2.5, NO, and NO2, pr
 Correlation analysis is crucial for this project as it helps quantify the strength of the relationships between pollutants, allowing us to identify which variables have the most influence on PM2.5 levels. Understanding these relationships ensures that the most impactful features are prioritized in predictive models.
 
 
-<img src="assets/corr.png" height="500" width="auto">
+<img src="assets/corrp.png" height="500" width="auto">
 
 Figure 7: Correlation Heat Map 
 
-<img src="assets/bar.png" height="500" width="auto">
+<img src="assets/barp.png" height="500" width="auto">
 
 Figure 8: Correlation with PM 2.5 Concentration Level Bar Chart
 
@@ -213,13 +213,23 @@ For each reduction scenario, adjusted NO and NO2 levels are input into the PM2.5
 
 The calculation uses the weighted contributions of NO and NO2 (combined as NOx) to determine their impact on PM2.5 levels. Correlation weights are applied to NO and NO2 to compute a weighted NOx value that reflects their influence on PM2.5. The contribution of NOx to PM2.5 is calculated as 5% of this weighted NOx, aligning with the theory that around 5% of NOx contributes to secondary PM2.5 formation through atmospheric chemical reactions.  For each reduction scenario, the levels of NO and NO2 are reduced by the specified factor (e.g., 5%, 10%, 15%, and 90%) to simulate the effects of emission reductions. Adjusted levels are input into the Random Forest model to predict the corresponding PM2.5 levels. The total reduction percentage is then calculated as:
 
+
+
 $'Total Reduction (%) = Original PM2.5 − ( Traffic PM2.5 Contribution + NOx Contribution to PM2.5 ) Original PM2.5 x 100'$
 
 
 
 
+| Reduction Factor (%) | Original PM2.5 (mcg/m³) | Predicted PM2.5 (mcg/m³) | Predicted NO (mcg/m³) | Predicted NO2 (mcg/m³) | NOx Contribution to PM2.5 (mcg/m³) | Total PM2.5 Reduction (%) |
+|-----------------------|-------------------------|---------------------------|------------------------|-------------------------|------------------------------------|---------------------------|
+| 5.0                  | 9.39506                | 9.212186                 | 12.105971             | 28.596058              | 1.041995                           | 2.909113                  |
+| 10.0                 | 9.39506                | 9.049776                 | 11.468814             | 27.091002              | 0.987154                           | 3.492844                  |
+| 15.0                 | 9.39506                | 8.812774                 | 10.831658             | 25.585946              | 0.932312                           | 4.076575                  |
+| 90.0                 | 9.39506                | 8.158392                 | 1.274313              | 3.010111               | 0.109684                           | 12.832538                 |
 
-Table 3: 
+
+
+Table 3: Result Table for Reduction Prediction under Different Scenarios( 5%, 10%, 15%, and 90%)
 
 
 
@@ -229,10 +239,17 @@ For each scenario, the table records the original PM2.5 concentration, the predi
 
 
 
+
+
+<img src="assets/finalp.png" height="500" width="auto">
+Figure 9: Projected Trend Plot (Assume 2050, 90% factor) 
+
+
 ## Conclusion 
 
 
 The project is considered successful as the total reduction percentage should be larger as the reduction factor increases, but less than 14% for the 90% prediction result. The project can effectively integrates correlation-based weighting and advanced machine learning models to predict air pollution trends and evaluate the impact of emission reduction scenarios in New York City. By using Random Forest for PM2.5 prediction and carefully selecting models for NO and NO2, the analysis achieves accurate predictions that align with observed relationships. The application of correlation weights ensures that NOx contributions to PM2.5 are realistically represented, offering actionable insights into the formation of secondary pollutants. Reduction scenarios demonstrate significant potential for improving air quality, with reductions in NOx leading to measurable decreases in PM2.5 levels. The final result table highlights the effect of various reduction factors, such as the notable 12.83% total PM2.5 reduction achieved under a 90% NOx reduction scenario. This emphasizes the importance of targeted emission control strategies for improving public health and urban environments. The methodology provides a robust framework for assessing pollution dynamics and the efficacy of interventions, supporting data-driven environmental policy development.
+
 
 
 ## Discussion
