@@ -128,9 +128,9 @@ Table 1: Performance Metrics Results For Regression Models Table
 
 Linear Regression and Ridge Regression showed remarkably similar performance, with near-identical R² values around 0.732 and RMSE values approximately 0.826. These linear models explained roughly 73% of the variance in PM2.5 levels but exhibited relatively high prediction errors, suggesting limitations in capturing the complex relationships between pollutants.
 
-While Random Forest and Gradient Boosting have demonstrated significantly improved predictive capabilities. The Random Forest model achieved an R² of 0.877, reducing the RMSE to 0.561 and the MAE to 0.387, indicating a substantial improvement over linear approaches. The Gradient Boosting model further enhanced these results, achieving the highest R² of 0.880, the lowest RMSE of 0.554, and an MAE of 0.391.
+While Random Forest and Gradient Boosting have demonstrated significantly improved predictive capabilities, indicating the complex non-linear prediction models have a substantial improvement over linear approaches. The Gradient Boosting model achieved an R² of 0.974, reducing the RMSE to 0.300 and the MAE to 0.229. The Gradient Boosting model further enhanced these results, achieving the highest R² of 0.979, the lowest RMSE of 0.270, and an MAE of 0.196.
 
-Ultimately, from the metrics result table, we can conclude that the **Gradient Boosting model** is able to explains about 87.96% of the variance in PM2.5 levels effectively, indicating a strong predictive capability and emerged as the most effective approach to accurately forecast PM2.5 concentrations. Therefore, Gradient Boosting model is used for subsequent trend analysis and pollution prediction in this study below.
+Ultimately, from the metrics result table, we can conclude that the **Random Forest model** is able to explains about 97.88% of the variance in PM2.5 levels effectively, indicating a strong predictive capability and emerged as the most effective approach to accurately forecast PM2.5 concentrations. Therefore, **Random Forest** model is used for subsequent trend analysis and pollution prediction in this study below.
 
 
 
