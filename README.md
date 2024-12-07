@@ -1,14 +1,17 @@
 ## Machine Learning Models to Analyze the Impact of Traffic Emissions on PM2.5 Levels in New York City
-To predict PM2.5 levels in urban environments, an ensemble machine learning approach is applied using gradient boosting decision trees.
+In order to predict the impacts traffic emission contribute to PM 2.5 urban emission in New York City, an ensemble machine learning approach is applied using random forest decision tree and correlation weighting.
+
 
 
 
 ## Introduction 
 
-  Air pollution is one of the leading environmental challenges. In urban areas, traffic emissions are a primary contributor to PM2.5 levels, with pollutants like nitric oxide (NO) and nitrogen dioxide (NO2) playing key roles in the formation of secondary particulate matter, which is posing significant health risks. PM2.5 particles, which are small enough to penetrate deep into the lungs and bloodstream, are linked to respiratory and cardiovascular diseases, and even premature mortality [1].  In New York city, 14 percent of current PM2.5 concentration comes from local vehicle emissions, which place it as the second largest PM2.5 emission source [2]. Specifically, while researches have stated that 4% to 37% of NOx, a major vehicle emission, is known to contribute to the formation of PM2.5 through chemical reactions in the atmosphere, the degree to which reducing traffic emissions might lower PM2.5 concentrations is not straightforward [3]. Traffic emissions regulation is critical for formulating effective air quality management strategies. While local vehicles are something that can go under restrictions and regulate the emission, we can regulate vehicle emissions by turning gasoline and diesel cars into EVs. The problem relies on quantifying this relationship between traffic-related emissions and PM2.5 levels. Using machine learning can help us in understanding this problem in depth by predicting patterns and effects and therefore can inform policies aimed at reducing traffic emissions, eventually improving urban air quality.
+  Air pollution is one of the leading environmental challenges. In urban areas, traffic emissions are a primary contributor to PM2.5 levels, with pollutants like nitric oxide (NO) and nitrogen dioxide (NO2) playing key roles in the formation of secondary particulate matter, which is posing significant health risks. PM2.5 particles, which are small enough to penetrate deep into the lungs and bloodstream, are linked to respiratory and cardiovascular diseases, and even premature mortality [1].  In New York city, 14 percent of current  yearly PM2.5 emission comes from local vehicle emissions, which place it as the second largest PM2.5 emission source [2]. Specifically, while researches have stated approximately that 4% to 37% of NOx, a major vehicle emission, is known to contribute to the formation of PM2.5 through chemical reactions in the atmosphere, the degree to which reducing traffic emissions might lower PM2.5 concentrations is not straightforward [3]. Traffic emissions regulation is critical for formulating effective air quality management strategies. While local vehicles are something that can go under restrictions and regulate the emission, we should regulate vehicle emissions by promoting gasoline and diesel cars and trucks into EVs. The problem relies on quantifying this relationship between traffic-related emissions and PM2.5 levels. Using machine learning can help us in understanding this problem in depth by predicting patterns and effects and therefore can inform policies aimed at reducing traffic emissions, eventually improving urban air quality.
 
-  This project focuses on the air quality challenge in New York City. We have datasets from the New York City Environmental Health Data Portal [4]. The datasets include PM2.5, NO, and NO2 levels for 2022. By cleaning the data and using machine learning techniques, we can modelize the trends and analyze the correlations between these pollutants and predict the impact of hypothetical traffic reductions. By using models like linear regression and gradient boosting and applying weighting method, we can quantify the contribution of traffic emissions to PM2.5 and simulate the effects of reduced traffic emissions, for instance, a 5%, 10%, 15% and 90% of reduction in PM2.5, NO and NO2 levels. The results showed a measurable reduction in PM2.5 levels, emphasizing the importance of managing traffic emissions for better air quality. This project in machine learning aims to provides insights of current air quality situation and predict situations under different scenarios, highlighting the value of machine learning in environmental analysis.
+  This project focuses on the air quality challenge in New York City, having datasets from the New York City Environmental Health Data Portal [4]. The datasets include PM2.5, NO, and NO2 levels for 2022. By cleaning the data and using machine learning techniques, we can modelize the trends and analyze the correlations between these pollutants and predict the impact of hypothetical traffic reductions. By using models like random forest and applying correlation weighting method, we can quantify the contribution of traffic emissions to PM2.5 and simulate the effects of reduced traffic emissions, for instance, a 5%, 10%, 15% and 90% of reduction in PM2.5, NO and NO2 levels. The results showed a measurable reduction in PM2.5 levels, emphasizing the importance of managing traffic emissions for better air quality. This project in machine learning aims to provides insights of current air quality situation and predict situations under different scenarios, highlighting the value of machine learning in environmental analysis. 
 
+
+  
 ### Links
 
 - Code: https://colab.research.google.com/drive/1KB060R_tsXEkppfVi7MSNn2mA84aMhvV?usp=sharing
@@ -53,7 +56,7 @@ Figure 3: NO Dataset. Provides similar statistics for nitric oxide (NO), includi
 
 The analysis was conducted using three key datasets representing pollution metrics in New York City: fine particles (PM2.5), nitric oxide (NO), and nitrogen dioxide (NO2). Each dataset has provided seasonal and annual averages of a specific pollutant concentrations alongside geographical identifiers in new york City. The PM2.5 dataset included columns such as GeoID (a geographical identifier), Year, and PM2.5 Levels (measured in micrograms per cubic meter, mcg/m³). Similarly, the NO and NO2 datasets contained GeoID, TimePeriod (e.g., "Summer 2022"), and respective pollutant levels (measured in ppb), along with metadata fields like Geotype and Georank.
 
-To prepare the data for analysis, several cleaning and feature editting were performed. First, from figure 2 and 3, it was noticed that there are columns with same names, which may prone error issuses when merging data. Therefore, 'Mean ppb' columns were renamed to distinguish between the air pollutants. Irrelevant columns such as '10 th percentile', '90 percentile', 'Geography', 'Geotype' and 'Georank' were excluded to streamline the dataset. Next, the TimePeriod column was converted into numerical formats to reflect fractional years (e.g. Filter out "Annual Average", change "Summer 2022" to 2022.625). Missing values were addressed through fillna function with median, which provides a central tendency of the entire column regardless of the distribution, ensuring data continuity without introducing bias. The datasets were then merged using the GeoID column and temporal identifiers, ensuring alignment across PM2.5, NO, and NO2 measurements. Finally, unit of pollutant concentrations were standardized, with mean NO and NO2 levels converted from ppb units to micrograms per cubic meter (mcg/m³) to maintain consistency across features. 
+To prepare the data for analysis, several cleaning and feature editting were performed. First, from figure 2 and 3, it was noticed that there are columns with same names, which may prone error issuses when merging data. Therefore, 'Mean ppb' columns were renamed to distinguish between the air pollutants. Irrelevant columns such as '10 th percentile', '90 percentile', 'Geography', 'Geotype' and 'Georank' were excluded to streamline the dataset. Next, the TimePeriod column was converted into numerical formats to reflect fractional years (e.g. Filter out "Annual Average", change "Summer 2022" to 2022.625). Missing values were addressed through fillna function with median, which provides a central tendency of the entire column regardless of the distribution, ensuring data continuity without introducing bias. The datasets were then merged using the GeoID column and temporal identifiers, ensuring alignment across PM2.5, NO, and NO2 measurements. Any GeoID or TimePeriod not present in all three datasets would lead to rows being excluded. Finally, unit of pollutant concentrations were standardized, with mean NO and NO2 levels converted from ppb units to micrograms per cubic meter (mcg/m³) to maintain consistency across features. 
 
 Here is the cleaned and merged data:
 
@@ -65,6 +68,7 @@ Here is the cleaned and merged data:
 Figure 4: Cleaned Dataset
 
 
+The rigorous cleaning steps, combined with the requirements for alignment and consistency across datasets, result in a significantly reduced dataset size. The final dataset of 1002 rows represents only the complete, cleaned, and aggregated observations suitable for analysis.
 
 
 ## Modelling 
@@ -135,10 +139,17 @@ Ultimately, from the metrics result table, we can conclude that the **Random For
 
 
 
-## Visualization and Trend Analysis
+## Trend and Correlation Analysis and Visualization
 
 
-### Trend Plot
+
+The trend and correlation analysis can affirm us that the hypothesis that reducing traffic-related pollutants (NO, NO2) can significantly impact PM2.5 levels, supporting targeted air quality management strategies, which reducing traffic emission can reduce PM2.5 in large extend therefore should promote EVs.
+
+
+The modelling begins by aggregating the dataset (final_data) by year, calculating the mean pollutant levels for each year. This creates a general_trend dataset with average values of PM2.5, NO, and NO2 across different years. Based on the results of the metric, a RandomForestRegressor model is trained using general_trend data, with Mean NO (mcg/m³), Mean NO2 (mcg/m³), and Year as features to predict Mean PM2.5 (mcg/m³). This leverages Random Forest's ability to capture complex non-linear relationships. The trained model can generate predictions for PM2.5 levels across years based on the NY portal provided pollutant data and temporal trends. These predictions represent the model's understanding of how PM2.5 levels are influenced by NO, NO2, and time.
+
+
+### Current Trend Plot
 
 
 
@@ -157,21 +168,32 @@ Figure 5: Trend Plot of New York Air Pollutant Concentration Level (NOx and PM2.
 
 <img src="assets/2.png" height="500" width="auto">
 
-Figure 6: Trend Plot of New York PM 2.5 Concentration Level From 2009 to 2022 and the Prediction Level using Gradient Boosting 
+Figure 6: Trend Plot of New York PM 2.5 Concentration Level From 2009 to 2022 and the Prediction Level using RandomForestRegressor Model
 
 
+
+The first plot visualizes actual average yearly trends of PM2.5, NO, and NO2, providing a comparative overview of how the levels of each pollutant change over time and the second plot overlays the Random Forest model's predictions for PM2.5 onto the actual observed PM2.5 levels. This highlights how well the model approximates historical data trends. The first plot shows that PM2.5 levels generally trend downward over the years, likely due to regulatory efforts or changes in emissions sources. NO and NO2 trends may show similar reductions, reflecting mitigation measures for vehicle and industrial emissions. For the second plot, which applied the RandomForestRegressor model, the proximity of the predicted PM2.5 line to the actual PM2.5 line in the second plot indicates that the Random Forest model effectively captures the relationship between the predictors and PM2.5. The combined visualizations suggest that reductions in NO and NO2 levels correspond with decreases in PM2.5. The downward trend emphasizes the potential effectiveness of emissions controls in improving air quality in the recent years.
 
 
 ### Correlation Analysis of PM 2.5 and NOx
 
+Correlation analysis is crucial for this project as it helps quantify the strength of the relationships between pollutants, allowing us to identify which variables have the most influence on PM2.5 levels. Understanding these relationships ensures that the most impactful features are prioritized in predictive models.
+
 
 <img src="assets/corr.png" height="500" width="auto">
 
-Figure 7: Correlation Graph for All Features 
+Figure 7: Correlation Heat Map 
 
 <img src="assets/bar.png" height="500" width="auto">
 
 Figure 8: Correlation with PM 2.5 Concentration Level Bar Chart
+
+
+
+The heatmap provides a comprehensive view of how various pollutants interact, offering insights into potential causal factors and dependencies. This aids in forming hypotheses about pollution dynamics and guides targeted policy recommendations. The identified correlations can be used for feature weighting in advanced prediction models, such as weighted regression or ensemble methods. Features with strong correlations, like NO2 and NO, can be assigned higher weights to enhance the model's accuracy and relevance to different scenarios, for instance, the prediction factor we set up below. Incorporating correlation-based weights makes the model not only more accurate but also more interpretable, as it aligns the feature importance with observed statistical relationships. This improves the model’s predictive power and makes the results more actionable for stakeholders aiming to reduce PM2.5 levels.
+
+
+The heatmap in figure 7 created using final_data.corr() visualizes the pairwise correlation between numeric features in the dataset. This allows for identifying strong linear relationships between variables, with the color gradient indicating the strength and direction of the correlation. The bar chart in figure 8 highlights the specific correlations of Mean PM2.5 (mcg/m³) with other pollutants (Mean NO (mcg/m³) and Mean NO2 (mcg/m³)), excluding features like GeoID and Year, for a focused analysis. The correlation coefficient between Mean PM2.5 (mcg/m³) and Mean NO2 (mcg/m³) is 0.827, indicating a very strong positive relationship. This suggests that higher levels of NO2 are strongly associated with elevated PM2.5 concentrations. The correlation coefficient between Mean PM2.5 (mcg/m³) and Mean NO (mcg/m³) is 0.735, which also represents a strong positive relationship. This highlights NO as another significant contributor to PM2.5 levels, though slightly less impactful than NO2. 
 
 
 
