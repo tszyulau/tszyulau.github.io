@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bruin Spacecraft Group Event Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    .form-container {
+      background-color: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2774AE; /* UCLA Blue */
+      margin-bottom: 5px;
+    }
+    h2 {
+      color: #FFB300; /* UCLA Gold */
+      font-size: 18px;
+      margin-top: 0;
+    }
+    .form-section {
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    .form-section:last-child {
+      border-bottom: none;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    input[type="text"], 
+    input[type="email"],
+    input[type="tel"],
+    select, 
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .checkbox-group, .radio-group {
+      margin-bottom: 15px;
+    }
+    .checkbox-item, .radio-item {
+      margin-bottom: 8px;
+    }
+    .checkbox-item label, .radio-item label {
+      font-weight: normal;
+      display: inline;
+    }
+    button[type="submit"] {
+      background-color: #2774AE;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button[type="submit"]:hover {
+      background-color: #1e5b8d;
+    }
+    .required:after {
+      content: " *";
+      color: red;
+    }
+    .footer {
+      font-size: 12px;
+      color: #666;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Bruin Spacecraft Group</h1>
+    <h2>Event Registration - April 2025</h2>
+    
+    <p>Thank you for your interest in our upcoming event! Join us to learn about space engineering, UCLA's programs, and connect with UCLA engineering students. Complete this form to reserve your spot.</p>
+    
+    <form id="eventRegistration">
+      <!-- Basic Information -->
+      <div class="form-section">
+        <h3>Basic Information</h3>
+        
+        <label for="fullName" class="required">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required>
+        
+        <label for="email" class="required">Email Address</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="phone">Phone Number (optional)</label>
+        <input type="tel" id="phone" name="phone">
+        
+        <label for="studentId">Student ID (if applicable)</label>
+        <input type="text" id="studentId" name="studentId">
+        
+        <div class="radio-group">
+          <label class="required">Are you a current PCC student?</label>
+          <div class="radio-item">
+            <input type="radio" id="isPccYes" name="isPccStudent" value="yes" required>
+            <label for="isPccYes">Yes</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="isPccNo" name="isPccStudent" value="no">
+            <label for="isPccNo">No</label>
+          </div>
+        </div>
+        
+        <label for="major">Major/Field of Study</label>
+        <input type="text" id="major" name="major">
+      </div>
+      
+      <!-- Event Preferences -->
+      <div class="form-section">
+        <h3>Event Preferences</h3>
+        
+        <label class="required">Preferred Format</label>
+        <div class="radio-group">
+          <div class="radio-item">
+            <input type="radio" id="formatInPerson" name="preferredFormat" value="inPerson" required>
+            <label for="formatInPerson">In-person</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="formatOnline" name="preferredFormat" value="online">
+            <label for="formatOnline">Online</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="formatNoPreference" name="preferredFormat" value="noPreference">
+            <label for="formatNoPreference">No preference</label>
+          </div>
+        </div>
+        
+        <div class="radio-group">
+          <label class="required">If in-person is possible, would you be able to attend?</label>
+          <div class="radio-item">
+            <input type="radio" id="inPersonYes" name="canAttendInPerson" value="yes" required>
+            <label for="inPersonYes">Yes</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="inPersonNo" name="canAttendInPerson" value="no">
+            <label for="inPersonNo">No</label>
+          </div>
+        </div>
+        
+        <div class="radio-group">
+          <label class="required">If online only, would you still participate?</label>
+          <div class="radio-item">
+            <input type="radio" id="onlineYes" name="willAttendOnline" value="yes" required>
+            <label for="onlineYes">Yes</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="onlineNo" name="willAttendOnline" value="no">
+            <label for="onlineNo">No</label>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Interest Assessment -->
+      <div class="form-section">
+        <h3>Interest Assessment</h3>
+        
+        <label>What interests you most about this event? (Check all that apply)</label>
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="interestSpace" name="interests" value="spaceEngineering">
+            <label for="interestSpace">Learning about space engineering</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="interestUcla" name="interests" value="uclaEngineering">
+            <label for="interestUcla">UCLA engineering programs</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="interestCareers" name="interests" value="aerospaceCareers">
+            <label for="interestCareers">Aerospace career opportunities</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="interestDemos" name="interests" value="demonstrations">
+            <label for="interestDemos">Hands-on demonstrations</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="interestNetworking" name="interests" value="networking">
+            <label for="interestNetworking">Meeting UCLA engineering students</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="interestOther" name="interests" value="other">
+            <label for="interestOther">Other</label>
+            <input type="text" id="interestOtherText" name="interestOtherText" placeholder="Please specify">
+          </div>
+        </div>
+        
+        <label>Which specific topics would you like covered? (Check all that apply)</label>
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="topicSatellite" name="topics" value="satelliteDevelopment">
+            <label for="topicSatellite">Satellite development</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="topicBalloon" name="topics" value="balloonProjects">
+            <label for="topicBalloon">High-altitude balloon projects</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="topicMission" name="topics" value="missionDesign">
+            <label for="topicMission">Space mission design</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="topicTransfer" name="topics" value="transferOpportunities">
+            <label for="topicTransfer">Transfer opportunities to UCLA</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="topicInternships" name="topics" value="internships">
+            <label for="topicInternships">Engineering internships/careers</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="topicOther" name="topics" value="other">
+            <label for="topicOther">Other</label>
+            <input type="text" id="topicOtherText" name="topicOtherText" placeholder="Please specify">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Availability -->
+      <div class="form-section">
+        <h3>Availability</h3>
+        
+        <label>Which days of the week work best for you? (Check all that apply)</label>
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="dayMonday" name="availableDays" value="monday">
+            <label for="dayMonday">Monday</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="dayTuesday" name="availableDays" value="tuesday">
+            <label for="dayTuesday">Tuesday</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="dayWednesday" name="availableDays" value="wednesday">
+            <label for="dayWednesday">Wednesday</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="dayThursday" name="availableDays" value="thursday">
+            <label for="dayThursday">Thursday</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="dayFriday" name="availableDays" value="friday">
+            <label for="dayFriday">Friday</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="daySaturday" name="availableDays" value="saturday">
+            <label for="daySaturday">Saturday</label>
+          </div>
+        </div>
+        
+        <label class="required">Preferred Time</label>
+        <div class="radio-group">
+          <div class="radio-item">
+            <input type="radio" id="timeMorning" name="preferredTime" value="morning" required>
+            <label for="timeMorning">Morning (9am-12pm)</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="timeAfternoon" name="preferredTime" value="afternoon">
+            <label for="timeAfternoon">Afternoon (12pm-5pm)</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="timeEvening" name="preferredTime" value="evening">
+            <label for="timeEvening">Evening (5pm-8pm)</label>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Additional Information -->
+      <div class="form-section">
+        <h3>Additional Information</h3>
+        
+        <label for="questions">Do you have any questions for the Bruin Space team?</label>
+        <textarea id="questions" name="questions" rows="3"></textarea>
+        
+        <label for="accessibility">Any accessibility requirements we should be aware of?</label>
+        <textarea id="accessibility" name="accessibility" rows="2"></textarea>
+        
+        <label>How did you hear about this event?</label>
+        <select id="referralSource" name="referralSource">
+          <option value="">-- Please select --</option>
+          <option value="email">Email</option>
+          <option value="social">Social Media</option>
+          <option value="poster">Campus Poster</option>
+          <option value="friend">Friend/Classmate</option>
+          <option value="professor">Professor</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      
+      <!-- Submit Button -->
+      <button type="submit">Register for Event</button>
+    </form>
+    
+    <div class="footer">
+      <p>By submitting this form, you agree that we may contact you regarding this event. Your information will not be shared with third parties.</p>
+      <p>Fields marked with * are required.</p>
+    </div>
+  </div>
+</body>
+</html>
